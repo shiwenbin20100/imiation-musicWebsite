@@ -1,0 +1,101 @@
+#footer{
+  width:100%;
+  background: white;
+  position: relative;
+  height: 390px;
+  border-top: 1px solid #e6e6e6;
+  top:-1px;
+  .wrap{
+    width: 1100px;
+    min-width: 1100px;
+    margin: 0 auto;
+    .top{
+      height: 230px;
+      padding-top: 24px;
+      ul{
+        float: left;
+        width: 130px;
+        li a{
+          font-size: 14px;
+          color: #999999;
+          line-height: 24px;
+          }
+        li:nth-of-type(1){
+            color: #666666;
+            margin-bottom: 6px;
+        }
+      }
+    }
+    .middle{
+      height: 70px;
+      border-top: 1px dashed #999999;
+      ul{
+        li{
+          float: left;
+          line-height: 36px;
+          a{
+            font-size: 12px;
+            color: #666666;
+            border-right: 1px solid #eeeeee;
+            padding: 0 10px;
+          }
+        }
+      }
+    }
+    .bottom{
+      height: 90px;
+      border-top: 1px dashed #999999;
+      padding-top: 18px;
+      font-size: 12px;
+      color: #666666;
+      position: relative;
+      a {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-left: 8px;
+        margin-top: 6px;
+        //@for $i from 1 through 5{
+        //  &:nth-of-type({$i}) {
+        //  background: url("common/img/footer_icon_contact.png") no-repeat -24px;
+        //  }
+        //}
+        &:nth-of-type(1) {
+          background: url("common/img/footer_icon_contact.png") no-repeat 0px;
+          &:hover{
+            background: url("common/img/footer_icon_contact_on.png") no-repeat 0px;
+          }
+          }
+        &:nth-of-type(2) {
+          background: url("common/img/footer_icon_contact.png") no-repeat -24px;
+          &:hover{
+            background: url("common/img/footer_icon_contact_on.png") no-repeat -24px;
+          }
+          }
+        &:nth-of-type(3) {
+          background: url("common/img/footer_icon_contact.png") no-repeat -48px;
+          &:hover{
+            background: url("common/img/footer_icon_contact_on.png") no-repeat -48px;
+          }
+          }
+        &:nth-of-type(4) {
+          background: url("common/img/footer_icon_contact.png") no-repeat -72px;
+          &:hover{
+            background: url("common/img/footer_icon_contact_on.png") no-repeat -72px;
+          }
+          }
+        &:nth-of-type(5) {
+          background: url("common/img/footer_icon_contact.png") no-repeat -96px;
+          &:hover{
+            background: url("common/img/footer_icon_contact_on.png") no-repeat -96px;
+          }
+          }
+      }
+    }
+    .copyright{
+      position: absolute;
+      top:20px;
+      right: 0;
+    }
+  }
+}
