@@ -1,6 +1,6 @@
 # lett
 
-A this project is an imiation of a music website,achieve the basic function of register,login,comment,and a web music player.
+this project is an imiation of a music website,achieve the basic function of register,login,comment,and a web music player.
 
 mainly built with react,as well as react-router,redux in the frontend,and nodejs,express,sequelize in backend.
 
