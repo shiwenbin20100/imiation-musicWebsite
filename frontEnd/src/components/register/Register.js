@@ -88,7 +88,7 @@ class Register extends Component{
     }
 
     fSubmit(){
-        let {usernameMsg,isVerify,step} = this.state;
+        let {usernameMsg,isVerify,step,username} = this.state;
         if(username && !usernameMsg && isVerify){
             this.setState({
                 step: "2"
