@@ -89,7 +89,7 @@ class Register extends Component{
 
     fSubmit(){
         let {usernameMsg,isVerify,step} = this.state;
-        if(!usernameMsg && isVerify){
+        if(username && !usernameMsg && isVerify){
             this.setState({
                 step: "2"
             })
@@ -100,7 +100,7 @@ class Register extends Component{
         let {username,password,rePassword,nickName,passwordMsg,rePasswordMsg,nickNameMsg,step} = this.state;
         let {pageChange} = this.props;
         let _this = this;
-        if(!passwordMsg && !rePasswordMsg && !nickNameMsg){
+        if(password && rePassword && nickName && !passwordMsg && !rePasswordMsg && !nickNameMsg){
             axios({
                     url: "http://localhost:9000/api/user/register",
                     method: "post",
@@ -161,7 +161,7 @@ class Register extends Component{
                 })
             }
         }
-        target.onmouseup = ()=>{
+        document.onmouseup = ()=>{
             if(parseInt(slideBlock.style.left) < 256){
                 slideBlock.style.transition = "1s";
                 completedBlock.style.transition = "1s";
@@ -169,7 +169,7 @@ class Register extends Component{
                 completedBlock.style.width = "0px";
             }
             document.onmousemove = null;
-            target.onmouseup = null;
+            document.onmouseup = null;
         }
     }
 

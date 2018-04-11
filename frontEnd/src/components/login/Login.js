@@ -55,7 +55,7 @@ class Login extends Component{
     handleLogin(){
         let {username,password,usernameMsg,passwordMsg} = this.state;
         let {pageChange} = this.props;
-        if(!usernameMsg && !passwordMsg){
+        if(username && password && !usernameMsg && !passwordMsg){
             axios({
                     url: "http://localhost:9000/api/user/login",
                     method: "post",
@@ -68,7 +68,6 @@ class Login extends Component{
   },
                     withCredentials: true
                 }
-
                 ).then(function (res) {
                     if(res.data.code === 0){
                         pageChange("/index");
@@ -79,6 +78,8 @@ class Login extends Component{
                     // })
                     }
                 })
+        }else {
+            alert("用户名或密码不能为空");
         }
 
     }

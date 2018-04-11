@@ -1,6 +1,6 @@
 var Sequelize = require("sequelize");
 var Op = Sequelize.Op;
-var db = new Sequelize("fake","fake","shiwenbin20100", {
+var db = new Sequelize("fake","root","shiwenbin20100", {
     host: "127.0.0.1",
     dialect: "mysql",
     operatorsAliases : {
@@ -8,7 +8,7 @@ var db = new Sequelize("fake","fake","shiwenbin20100", {
         $not: Op.not
     },
     pool: {
-        max: 5,
+        max: 10,
         min: 0,
         idle: 5000
     },

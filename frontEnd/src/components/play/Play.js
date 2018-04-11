@@ -24,8 +24,8 @@ class Play extends Component{
         this.changeMuted = this.changeMuted.bind(this);
 
         this.state = {
-            startTime: "",
-            endTime: "",
+            startTime: "00:00",
+            endTime: "00:00",
             isMuted: false
         }
     }
@@ -62,9 +62,6 @@ class Play extends Component{
         if(allSong.offsetHeight <= songBodyWrap.offsetHeight){
             scrollBlock0.style.display = "none";
         }
-        // if(lyric.offsetHeight <= lyricFrame.offsetHeight){
-        //     scrollBlock1.style.display = "none";
-        // }
     }
 
     //滚动条滑动
