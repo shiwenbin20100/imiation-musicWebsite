@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var db  =require("../db/index");
 var responseData;
+var jwt = require("jsonwebtoken");
 
 router.all('*', function(req, res, next) {
      res.header('Access-Control-Allow-Origin', 'http://localhost:8090');
@@ -13,14 +14,15 @@ router.all('*', function(req, res, next) {
 router.use(function (req,res,next) {
     responseData = {
         code:0,
-        message: ""
+        message: "",
+        token: ""
     }
     next();
 });
 router.post("/user/test",(req,res,next)=>{
     res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
-  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS')
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS')
     console.log(req.body)
     responseData.code = 1;
         responseData.message = "用户名不能为空";
@@ -111,6 +113,10 @@ router.post("/user/login",function (req, res, next) {
                 res.json(responseData);
                 return;
             }else {
+                var token = jwt.sign({
+                    data:username,
+                    exp:Math.floor(Date.now() / 1000) + (60 * 60 * 2)
+                },"swb1995.com")
                 responseData.message = "登录成功";
                 responseData.userInfo = {
                     _id: userInfo.id,
@@ -120,7 +126,8 @@ router.post("/user/login",function (req, res, next) {
                 req.cookies.set("userInfo",JSON.stringify({
                     _id: userInfo.id,
                     username: userInfo.username,
-                    nickname: userInfo.nickname
+                    nickname: userInfo.nickname,
+                    token: token
                 }),{httpOnly:false});
                 res.json(responseData);
                 return;

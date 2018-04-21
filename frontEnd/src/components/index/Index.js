@@ -37,7 +37,8 @@ class Index extends Component{
             let cookieArr = document.cookie.match(/userInfo={(.+)}/)[1];
             let userID = cookieArr.match(/(?:("_id":))(\d+)/)[2];
             let username = cookieArr.match(/(?:("username":))(.+),+|$/)[2];
-            let nickname = cookieArr.match(/(?:("nickname":))(.+),*/)[2];
+            let nickname = cookieArr.match(/(?:("nickname":))(.+),+|$/)[2];
+            console.log(nickname)
             this.props.getCookie(userID,username,nickname);
         }
         this.getComment(1);

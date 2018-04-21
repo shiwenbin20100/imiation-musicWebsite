@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db  =require("../db/index");
+const authMiddleware = require("../middleware/authMiddleware");
 let responseData;
 
 let date = new Date();
@@ -47,8 +48,8 @@ router.get("/song",function (req, res, next) {
 
 });
 
-router.post("/song",function (req, res, next) {
-
+router.post("/song",authMiddleware,function (req, res, next) {
+    console.log(req.loginUser)
     for(let key in req.body){
         var arr =  JSON.parse(key);
         var id = arr.id;
@@ -61,18 +62,20 @@ router.post("/song",function (req, res, next) {
         responseData.message = "内容不能为空";
         res.json(responseData)
     }
+    if(req.loginUser === nickname){
+        db.Comment.create({
+            userid: userid,
+            nickname: nickname,
+            content: content,
+            upNum: 0,
+            downNum: 0
+        }).then(function (rs) {
+            responseData.code = 1;
+            responseData.message = "发表成功";
+            res.json(responseData);
+        })
+    }
 
-    db.Comment.create({
-        userid: userid,
-        nickname: nickname,
-        content: content,
-        upNum: 0,
-        downNum: 0
-    }).then(function (rs) {
-        responseData.code = 1;
-        responseData.message = "发表成功";
-        res.json(responseData);
-    })
 });
 
 router.get("/song/good",function (req, res, next) {

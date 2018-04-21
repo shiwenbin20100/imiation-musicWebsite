@@ -1,20 +1,20 @@
 # lett
 
-this project is an imiation of a music website,achieve the basic function of register,login,comment,and a web music player.
+This project is an imiation of a music website,achieve the basic function of register,login,comment,and a web music player.
 
-mainly built with react,as well as react-router,redux in the frontend,and nodejs,express,sequelize in backend.
+Mainly built with React,as well as React-Router,Redux in the frontend,and nodejs,express,sequelize in backend.
 
 ## How to run
 
-first,in both backend and frontend folder,run:
+First,in both backend and frontend folder,run:
 
 `npm install`
 
-then,in frontend folder:
+Then,in frontend folder:
 
 `npm satrt`
 
-in backend folder:
+In backend folder:
 
 `node app`
 
